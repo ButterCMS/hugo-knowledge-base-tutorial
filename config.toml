@@ -1,0 +1,17 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+section = ["HTML", "RSS", "JSON"]
+page = ["HTML", "RSS", "JSON"]
+
+[module]
+[[module.imports]]
+path = "github.com/dgrigg/hugo-lunr"
+
+[params.lunr]
+contentDir = "content"
+indexName = "search_index.json"
+fields = ["title", "description", "content"]

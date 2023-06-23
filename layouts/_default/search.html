@@ -1,0 +1,33 @@
+~{{ define "main" }}
+
+<main>
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column">
+        <div class="my-auto" >
+          <form action="{{ "search" | absURL }}">
+            <input id="search-query" name="s"/>
+          </form>
+        </div>
+      </section>
+    <div id="search-results"></div>
+    <div class="search-loading">Loading...</div>
+    <input type="text" id="searchInput">
+    <ul id="searchResults"></ul>
+
+    <script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}">
+        <h3><a href="${link}">${title}</a></h3>
+        <p>${snippet}</p>
+        <p>
+            <small>
+                ${ isset tags }Tags: ${tags}<br>${ end }
+            </small>
+        </p>
+    </div>
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="/js/search.js"></script>
+</main>
+
+{{ end }}
+

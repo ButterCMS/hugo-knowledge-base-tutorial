@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hugo KB</title>
+    <style>
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: rgb(33 37 52);;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: #111;
+        }
+        
+        .active {
+          background-color:#111;
+        }
+        .parent {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(3, 300px);
+      grid-template-rows: repeat(3, 300px);
+    }
+    .parent > div {
+      padding: 10px;
+      background-color: #EFCB68;
+      border-radius: 5px;
+      display: grid;
+      place-items: center;
+    }
+
+    .parent > div {
+      font-family: sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+        </style>
+</head>
+<body style="margin: 0;font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li style="float:right"><a class="active" href="#about">About</a></li>
+  </ul>
+    <header style="margin: 0; padding: 3rem; margin-bottom: 4rem; background-color: rgb(33 37 52); display: flex; justify-content: center;">
+        <div>
+          <h2 style="display: flex; justify-content: center; color: white;">Hugo KB</h2>
+          <input
+            style="padding: 1rem; padding-right: 40rem;"
+            placeholder="Search the knowledge base"
+            name="search"
+            type="search" id="search-input"
+          />
+          <button
+            type="submit"
+            style="
+              font-size: 20px;
+              margin-left: -20px;
+              outline: none;
+              color: white;
+              background-color: rgb(235 89 129);
+              text-decoration: none;
+              border: none;
+              padding: 1.1rem;
+            "
+          >
+            search
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="pb7" role="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </body>
+</html>
