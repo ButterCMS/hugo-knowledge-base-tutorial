@@ -1,0 +1,22 @@
+
+    {{ range .Site.RegularPages }}
+    {
+        "title": "{{ .Title | jsonify }}",
+        "url": "{{ .Permalink }}",
+        "content": "{{ .Plain | replaceRE "(\\r\\n|\\n|\\r)" " " | jsonify }}",
+        "categories": [
+            {{ range $index, $element := .Params.categories }}
+            "{{ $element | jsonify }}"
+            {{ if ne $index (sub (len $.Params.categories) 1) }},{{ end }}
+            {{ end }}
+        ],
+        "tags": [
+            {{ range $index, $element := .Params.tags }}
+            "{{ $element | jsonify }}"
+            {{ if ne $index (sub (len $.Params.tags) 1) }},{{ end }}
+            {{ end }}
+        ]
+    }
+    {{ if not (last .) }},{{ end }}
+    {{ end }}
+
